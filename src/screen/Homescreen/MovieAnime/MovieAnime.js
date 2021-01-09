@@ -1,0 +1,73 @@
+import React, { useEffect, useState } from 'react'
+import { View, Text, FlatList, Dimensions, Linking } from 'react-native';
+import axios from 'axios';
+import Image from 'react-native-scalable-image';
+import StarRatings from 'react-star-ratings';
+import { Styles } from './MovieAnime.style';
+import { GET_TOP_ANIME_MOVIE } from '../../../constants/constants';
+
+const MovieAnime = () => {
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    getTopAnimeMovie();
+  }, []);
+
+  const getTopAnimeMovie = () => {
+    axios.get(GET_TOP_ANIME_MOVIE).then((result) => {
+      setMovie(result.data.top)
+    })
+  }
+
+
+  return (
+    <View style={Styles.containerSection}>
+      <View style={Styles.headerSub}>
+        <Text style={Styles.subType}>Top Movie</Text>
+        <Text style={Styles.more}>View All</Text>
+      </View>
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        data={movie.slice(0,10)}
+        renderItem={({ item }) =>
+          <View style={Styles.content}>
+            <View style={Styles.image_propShadow}>
+              <Image
+                width={140}
+                height={190}
+                resizeMode="cover"
+                style={Styles.image_prop}
+                source={{
+                  uri: item.image_url
+                }}
+              />
+            </View>
+            <Text
+              onPress={() => Linking.openURL(item.url)}
+              ellipsizeMode='tail'
+              numberOfLines={2}
+              style={Styles.title}>{item.title}</Text>
+            <View style={Styles.info}>
+              <StarRatings
+                rating={item.score/2}
+                starRatedColor="#ED2E45"
+                starEmptyColor="#A2A2A5"
+                numberOfStars={5}
+                starDimension="15px"
+                starSpacing="1px"
+                name='rating'
+              />
+              <View>
+                <Text style={Styles.infoScore}>{item.score}</Text>
+              </View>
+            </View>
+          </View>
+        }
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
+  )
+}
+
+export default MovieAnime
