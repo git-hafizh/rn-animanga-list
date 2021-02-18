@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   containerSection: {
-    marginTop: 20
+    marginTop: 30
   },
   headerSub: {
     flexDirection: "row",
@@ -14,38 +14,31 @@ const Styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 0,
     color: "#636e72",
-    fontWeight: 600
+    fontWeight: "600"
   },
   content: {
     flexDirection: 'column',
     alignItems: 'center',
-    margin: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    marginBottom: 10
   },
   image_prop: {
     borderRadius: 10,
-  },
-  image_propShadow: {
-    borderRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    
-    elevation: 5,
+    borderWidth: 0.5,
+    borderColor: "#e9e9eb",
   },
   title: {
     width: 140,
     height: 35,
     textAlign: 'center',
     fontSize: 12,
-    fontWeight: 600,
-    marginTop: 5
+    fontWeight: "bold",
+    marginTop: 10,
   },
   subType: {
     fontSize: 18,
-    fontWeight: 600,
+    fontWeight: "bold",
     marginTop: 10,
     marginRight: 10,
     marginLeft: 10,
@@ -54,21 +47,18 @@ const Styles = StyleSheet.create({
   info: {
     flex: 1,
     marginTop: 10,
-    width: 140,
-    height: 10,
+    width: 130,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
   startDate: {
     textTransform: "uppercase",
     fontWeight: "bold",
-    fontSize: 12
+    fontSize: 10,
+    letterSpacing: 1
   },
   infoStartDate: {
-    backgroundColor: '#FF9627',
-    borderRadius: 5,
-    color: "white",
-    padding: 2,
+    color: "#ED2E45",
     fontSize: 10,
     textTransform: "uppercase",
     fontWeight: "bold",

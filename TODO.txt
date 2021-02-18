@@ -1,0 +1,17 @@
+[] = BELUM DIKERJAKAN
+[x] = SUDAH DIKERJAKAN
+[/] = Batal / On hold
+
+*
+[x] Banner season anime di homescreen
+[x] Tampilkan anime yang tayang pada hari ini
+[x] Page anime berdasarkan season
+
+**
+[x] Jadwal anime yang tayang
+
+***
+[x] Kolom pencarian anime
+[x] Buat bottom navigation bar
+[/] skeleton component ketika masih loading
+[/] Buat kondisi ketika error (search, loading data)
